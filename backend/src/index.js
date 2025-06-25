@@ -1,39 +1,32 @@
-import express from "express"
-import authRoutes from "./routes/auth.route.js"
-import dotenv from "dotenv"
-import { connectDB } from "./lib/db.js"
+import express from "express";
+import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import messageRoutes from "./routes/message.route.js"
-import cors from "cors"
-import { app, server } from "./lib/socket.js";
+import cors from "cors";
 
 import path from "path";
 
-dotenv.config()
+import { connectDB } from "./lib/db.js";
 
-const PORT = process.env.PORT
+import authRoutes from "./routes/auth.route.js";
+import messageRoutes from "./routes/message.route.js";
+import { app, server } from "./lib/socket.js";
+
+dotenv.config();
+
+const PORT = process.env.PORT;
+const __dirname = path.resolve();
 
 app.use(express.json());
-app.use(cookieParser()); 
+app.use(cookieParser());
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || origin.includes("localhost") || origin.endsWith(".onrender.com")) {
-        callback(null, true)
-      } else {
-        callback(new Error("Not allowed by CORS"))
-      }
-    },
-    credentials: true
+    origin: "http://localhost:5173",
+    credentials: true,
   })
-)
+);
 
-
-
-app.use("/api/auth", authRoutes)
-app.use("/api/message", messageRoutes)
-
-const __dirname = path.resolve();
+app.use("/api/auth", authRoutes);
+app.use("/api/message", messageRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
@@ -43,8 +36,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-
 server.listen(PORT, () => {
-    console.log("server is running on PORT:" + PORT);
-    connectDB()
+  console.log("server is running on PORT:" + PORT);
+  connectDB();
 });
