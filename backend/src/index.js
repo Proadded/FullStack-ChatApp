@@ -15,12 +15,19 @@ const PORT = process.env.PORT
 
 app.use(express.json());
 app.use(cookieParser()); 
-app.use(cors({
-    origin: process.env.NODE_ENV === "production"
-        ? "https://fullstack-chatapp-2-yv18.onrender.com" 
-        : "http://localhost:5173",
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || origin.includes("localhost") || origin.endsWith(".onrender.com")) {
+        callback(null, true)
+      } else {
+        callback(new Error("Not allowed by CORS"))
+      }
+    },
     credentials: true
-}));
+  })
+)
+
 
 
 app.use("/api/auth", authRoutes)
