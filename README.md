@@ -168,6 +168,7 @@ Scroll-to-bottom with useRef + scrollIntoView for new messages.
     Deployment Ready: Can run on separate servers or merge via Express static.
 
 ###📂 Folder Structure\.
+
         ├── backend
         │   ├── routes/
         │   ├── controllers/
