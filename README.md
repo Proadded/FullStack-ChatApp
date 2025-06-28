@@ -69,7 +69,9 @@ Configure .env in the backend folder:
     npm run dev
 Runs on: http://localhost:5173
 
-### 🔍 How the app works
+---
+
+#### 🔍 How the app works
 🚀 Flow of the project
 ✅ Authentication
 Auth is handled via JWT tokens stored in HTTP-only cookies.
@@ -109,8 +111,8 @@ When a message is sent, the backend checks if the receiver is online:
 Online users are broadcasted to all via:
 
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
-
-###💬 How messages are shared
+---
+####💬 How messages are shared
 Messages are stored in MongoDB via the Message model:
     
     {
@@ -138,8 +140,8 @@ Also subscribes to "newMessage" event so chats are real-time.
   This URL is saved in the Message schema.
 
   Frontend renders it inside <img> tag under the chat bubble.
-
-### 🎨 How we designed the UI
+---
+#### 🎨 How we designed the UI
 Built with:
 
 TailwindCSS for quick styling + dark/light mode.
@@ -156,7 +158,9 @@ Reusable components like <ChatHeader>, <MessageInput>, <Sidebar>.
 
 Scroll-to-bottom with useRef + scrollIntoView for new messages.
 
-### 🛠 Tech Stack
+---
+
+#### 🛠 Tech Stack
     Frontend: React, Zustand, TailwindCSS, React Router, React Hot Toast
     
     Backend: Node.js, Express, Mongoose, JWT, Cookie Parser
@@ -167,7 +171,9 @@ Scroll-to-bottom with useRef + scrollIntoView for new messages.
     
     Deployment Ready: Can run on separate servers or merge via Express static.
 
-###📂 Folder Structure\.
+---
+
+####📂 Folder Structure\.
 
         ├── backend
         │   ├── routes/
