@@ -157,13 +157,28 @@ Reusable components like <ChatHeader>, <MessageInput>, <Sidebar>.
 Scroll-to-bottom with useRef + scrollIntoView for new messages.
 
 ### 🛠 Tech Stack
-Frontend: React, Zustand, TailwindCSS, React Router, React Hot Toast
+    Frontend: React, Zustand, TailwindCSS, React Router, React Hot Toast
+    
+    Backend: Node.js, Express, Mongoose, JWT, Cookie Parser
+    
+    Real-time: Socket.IO
+    
+    Uploads: Cloudinary
+    
+    Deployment Ready: Can run on separate servers or merge via Express static.
 
-Backend: Node.js, Express, Mongoose, JWT, Cookie Parser
-
-Real-time: Socket.IO
-
-Uploads: Cloudinary
-
-Deployment Ready: Can run on separate servers or merge via Express static.
-
+###📂 Folder Structure\.
+        ├── backend
+        │   ├── routes/
+        │   ├── controllers/
+        │   ├── lib/ (db.js, socket.js, cloudinary.js)
+        │   ├── models/
+        │   └── index.js
+        ├── frontend
+        │   ├── src/components/
+        │   ├── src/store/ (zustand)
+        │   ├── src/pages/
+        │   └── main.jsx
+        ├── package.json (root)
+        ├── README.md
+        └── .gitignore
