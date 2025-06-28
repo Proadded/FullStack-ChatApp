@@ -71,7 +71,7 @@ Runs on: http://localhost:5173
 
 ---
 
-#### 🔍 How the app works
+#🔍 How the app works
 🚀 Flow of the project
 ✅ Authentication
 Auth is handled via JWT tokens stored in HTTP-only cookies.
@@ -93,7 +93,7 @@ Frontend uses a global Zustand store useAuthStore which:
     Calls connectSocket() immediately after login/signup or on refresh (via checkAuth).
 
 
-### 🔌 Real-time messaging (Socket.IO)
+# 🔌 Real-time messaging (Socket.IO)
 Each user connects to Socket.IO on login:
 
     const socket = io(BASE_URL, {
@@ -132,7 +132,7 @@ When you click a user in the sidebar, it loads all previous messages via:
     axiosInstance.get(`/message/${selectedUser._id}`)
 Also subscribes to "newMessage" event so chats are real-time.
 
-####🖼 How send photo functionality works
+# 🖼 How send photo functionality works
   In the message input, we allow attaching a photo (converted to Base64 on client).
 
   Backend uses cloudinary.uploader.upload(image) to upload & get a URL.
@@ -141,7 +141,7 @@ Also subscribes to "newMessage" event so chats are real-time.
 
   Frontend renders it inside <img> tag under the chat bubble.
 ---
-#### 🎨 How we designed the UI
+# 🎨 How we designed the UI
 Built with:
 
 TailwindCSS for quick styling + dark/light mode.
@@ -160,7 +160,7 @@ Scroll-to-bottom with useRef + scrollIntoView for new messages.
 
 ---
 
-#### 🛠 Tech Stack
+#🛠 Tech Stack
     Frontend: React, Zustand, TailwindCSS, React Router, React Hot Toast
     
     Backend: Node.js, Express, Mongoose, JWT, Cookie Parser
@@ -172,8 +172,7 @@ Scroll-to-bottom with useRef + scrollIntoView for new messages.
     Deployment Ready: Can run on separate servers or merge via Express static.
 
 ---
-
-####📂 Folder Structure\.
+#📂 Folder Structure\.
 
         ├── backend
         │   ├── routes/
