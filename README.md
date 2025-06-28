@@ -111,8 +111,10 @@ When a message is sent, the backend checks if the receiver is online:
 Online users are broadcasted to all via:
 
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
+    
 ---
-####💬 How messages are shared
+
+#💬 How messages are shared
 Messages are stored in MongoDB via the Message model:
     
     {
@@ -138,9 +140,10 @@ Also subscribes to "newMessage" event so chats are real-time.
   Backend uses cloudinary.uploader.upload(image) to upload & get a URL.
 
   This URL is saved in the Message schema.
-
   Frontend renders it inside <img> tag under the chat bubble.
+  
 ---
+
 # 🎨 How we designed the UI
 Built with:
 
@@ -172,6 +175,7 @@ Scroll-to-bottom with useRef + scrollIntoView for new messages.
     Deployment Ready: Can run on separate servers or merge via Express static.
 
 ---
+
 #📂 Folder Structure\.
 
         ├── backend
